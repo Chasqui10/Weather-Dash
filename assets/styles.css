@@ -2,3 +2,6 @@
     --custom-bg-color: rgb(214, 237, 241);
 }
 
+.boxBorderVision{
+    border: thick solid orange;
+}
