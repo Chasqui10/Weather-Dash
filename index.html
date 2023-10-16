@@ -8,24 +8,93 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
         rel="stylesheet" 
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href = "./assets/styles.css">
+    
+    <link rel="stylesheet" href = "./assets/styles.css">
 </head>
 
 <body>
-    <nav class="navbar bg-body-tertiary">
+  <h1> Weather Dashboard</h1>
+  <div class="container row justify-content-between">
+    <div class="col-3 cityInput">
+      <h3>Enter Name of City:</h3>
+      <input type="text" class="cityName" placeholder= "City Name Search Here">
+      <button class="searchBtn">Search</button>
+    </div>
+    <div class="col-9 weatherData">
+      <div class="currentWeather">
+        <div class="weatherInfo">
+          <h2>City Name <span class="currentDate">[Today's Date]</span></h2>
+          <h6>Temperature: 78°F </h6>
+          <h6>Wind Speed: </h6>
+          <h6>Humidity: </h6>
+        </div>
+      </div>
+      <div class="row 5dayForecast">
+        <h2>5 Day Forecast</h2>
+        <ul class="weatherCards row">
+          <l1 class="cards m-2 col-md-3 list-group" id="day1of5">
+            <h3>Day 1</h2>
+            <h6>Temp: 78°F </h6>
+            <h6>Wind: </h6>
+            <h6>Humidity: % </h6>
+          </l1>
+         
+          <l1 class="cards m-2 col-md-3 list-group" id="day2of5">
+              <h3 >Day 2</h2>
+                <h6 >Temp: 78°F </h6>
+                <h6 >Wind: </h6>
+                <h6 >Humidity: % </h6>
+          </l1>
+          
+          <l1 class="cards m-2 col-md-3 list-group" id="day3of5">
+              <h3>Day 3</h2>
+              <h6>Temp: 78°F </h6>
+              <h6>Wind: </h6>
+              <h6>Humidity: % </h6>
+          </l1>
+          
+          <l1 class="cards m-2 col-md-3 list-group" id="day4of5">
+              <h3>Day 4</h2>
+              <h6>Temp: 78°F </h6>
+              <h6>Wind: </h6>
+              <h6>Humidity: % </h6>
+          </l1>
+          
+          <l1 class="cards m-2 col-md-3 list-group" id="day5of5">
+              <h3>Day 5</h2>
+              <h6>Temp: 78°F </h6>
+              <h6>Wind: </h6>
+              <h6>Humidity: % </h6>
+          </l1>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+    <!-- <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img src="./assets/images/icons8-four-seasons-48.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
             Weather Dashboard
           </a>
         </div>
-      </nav>
+      </nav> -->
       
 
-    <div class="row g-3 ">        
+    <!-- <div class="row g-3 ">        
         <div class="col-sm-3" id="formContainer">
             <h2 class="text-center" id="search-title">Search for a City:</h2>
-            <input type="text" class="form-control" placeholder="City" aria-label="City">
+            <input type="text" class="form-control" id="citySearch" placeholder="City" aria-label="City">
             <div class="d-grid col-6 mx-auto p-2">
                 <button class="btn btn-primary" type="button" id="btnSearch"> Search </button>
             </div>
@@ -34,17 +103,54 @@
    
     <div class="container-fluid text-center" id="">Response conatiner
         <div class="row">
-          <div class="col-lg-6" id="dailyForecast" >col
-
+          <div class="col-lg-6" id="dailyForecast" >
+            <h2 class="cityName">London </h2>
+            <h4 class="cityTemp">Temperature: </h4>
+            <h4 class="cityWind">Wind</h4>
+            <h4 class="cityHumidity">Humitdity </h4>
+            
           </div>
         </div>
 
         <div class="row">
-          <div class="col-lg-6" id="weeklyForecast">col
-
+          <div class="col-lg-6" id="weeklyForecast">
+            <div class="weather-cards">
+            <ul class="weatherCards">
+              <li class="cards">
+                <h4 class="cityName">London </h2>
+                <h6 class="cityTemp">Temperature</h4>
+                <h6 class="cityWind">Wind</h4>
+                <h6 class="cityHumidity">Humitdity </h4>
+              </li>
+              <li class="cards">
+                <h4 class="cityName">London </h2>
+                  <h6 class="cityTemp">Temperature</h4>
+                  <h6 class="cityWind">Wind</h4>
+                  <h6 class="cityHumidity">Humitdity </h4>
+              </li>
+              <li class="cards">
+                <h4 class="cityName">London </h2>
+                  <h6 class="cityTemp">Temperature</h4>
+                  <h6 class="cityWind">Wind</h4>
+                  <h6 class="cityHumidity">Humitdity </h4>
+              </li>
+              <li class="cards">
+                <h4 class="cityName">London </h2>
+                  <h6 class="cityTemp">Temperature</h4>
+                  <h6 class="cityWind">Wind</h4>
+                  <h6 class="cityHumidity">Humitdity </h4>
+              </li>
+              <li class="cards">
+                <h4 class="cityName">London </h2>
+                  <h6 class="cityTemp">Temperature</h4>
+                  <h6 class="cityWind">Wind</h4>
+                  <h6 class="cityHumidity">Humitdity </h4>
+              </li>
+            </ul>
+            </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
     <!-- SCRIPT Links for APIs and Custom logic -->

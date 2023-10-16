@@ -1,7 +1,23 @@
 :root{
     --custom-bg-color: rgb(214, 237, 241);
+    --custom-bg-card: rgb(82, 120, 177);
 }
 
-.boxBorderVision{
-    border: thick solid orange;
+body{
+    background: var(--custom-bg-color);
 }
+
+h1{
+    background:pink;
+    font-size: 1.50rem;
+    text-align: center;
+    padding: 18px 0;
+    color: blue
+}
+.cards{
+    display: flex;
+    background: var(--custom-bg-card);
+    list-style: none;
+    border-radius: 5px;
+}
+
