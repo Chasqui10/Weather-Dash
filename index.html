@@ -15,11 +15,16 @@
 <body>
   <h1> Weather Dashboard</h1>
   <div class="container row justify-content-between">
-    <div class="col-3 cityInput">
-      <h3>Enter Name of City:</h3>
-      <input type="text" class="cityName" placeholder= "City Name Search Here">
-      <button class="searchBtn">Search</button>
+
+    <div class="col-sm-3" id="formContainer">
+      <h2 class="text-center" id="searchTitle">Search for a City:</h2>
+      <input type="text" class="form-control" id="citySearch" placeholder="Place a City's Name" aria-label="City">
+      <div class="d-grid col-6 p-2 mx-auto" >
+          <button class="btn btn-primary" type="button" id="btnSearch"> Search </button>
+      </div>
     </div>
+
+    
     <div class="col-9 weatherData">
       <div class="currentWeather">
         <div class="weatherInfo">
@@ -72,15 +77,6 @@
 
   </div>
   
-  
-
-
-
-
-
-
-
-
     <!-- <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
@@ -92,13 +88,7 @@
       
 
     <!-- <div class="row g-3 ">        
-        <div class="col-sm-3" id="formContainer">
-            <h2 class="text-center" id="search-title">Search for a City:</h2>
-            <input type="text" class="form-control" id="citySearch" placeholder="City" aria-label="City">
-            <div class="d-grid col-6 mx-auto p-2">
-                <button class="btn btn-primary" type="button" id="btnSearch"> Search </button>
-            </div>
-        </div>
+        
         <div class="container-sm-3 " id ="cityListLocal">For Local Storage</div>
    
     <div class="container-fluid text-center" id="">Response conatiner
@@ -110,50 +100,12 @@
             <h4 class="cityHumidity">Humitdity </h4>
             
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" id="weeklyForecast">
-            <div class="weather-cards">
-            <ul class="weatherCards">
-              <li class="cards">
-                <h4 class="cityName">London </h2>
-                <h6 class="cityTemp">Temperature</h4>
-                <h6 class="cityWind">Wind</h4>
-                <h6 class="cityHumidity">Humitdity </h4>
-              </li>
-              <li class="cards">
-                <h4 class="cityName">London </h2>
-                  <h6 class="cityTemp">Temperature</h4>
-                  <h6 class="cityWind">Wind</h4>
-                  <h6 class="cityHumidity">Humitdity </h4>
-              </li>
-              <li class="cards">
-                <h4 class="cityName">London </h2>
-                  <h6 class="cityTemp">Temperature</h4>
-                  <h6 class="cityWind">Wind</h4>
-                  <h6 class="cityHumidity">Humitdity </h4>
-              </li>
-              <li class="cards">
-                <h4 class="cityName">London </h2>
-                  <h6 class="cityTemp">Temperature</h4>
-                  <h6 class="cityWind">Wind</h4>
-                  <h6 class="cityHumidity">Humitdity </h4>
-              </li>
-              <li class="cards">
-                <h4 class="cityName">London </h2>
-                  <h6 class="cityTemp">Temperature</h4>
-                  <h6 class="cityWind">Wind</h4>
-                  <h6 class="cityHumidity">Humitdity </h4>
-              </li>
-            </ul>
-            </div>
-          </div>
-        </div>
-      </div> -->
+        </div> -->
 
 
-    <!-- SCRIPT Links for APIs and Custom logic -->
+
+
+     <!-- SCRIPT Links for APIs and Custom logic --> 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src = "./assets/script.js"> </script>

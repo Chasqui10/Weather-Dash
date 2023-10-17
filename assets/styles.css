@@ -1,6 +1,7 @@
 :root{
     --custom-bg-color: rgb(214, 237, 241);
     --custom-bg-card: rgb(82, 120, 177);
+    --custom-bg-navBar: green;
 }
 
 body{
@@ -8,11 +9,11 @@ body{
 }
 
 h1{
-    background:pink;
+    background:var(--custom-bg-navBar);
     font-size: 1.50rem;
     text-align: center;
     padding: 18px 0;
-    color: blue
+    color: white
 }
 .cards{
     display: flex;
