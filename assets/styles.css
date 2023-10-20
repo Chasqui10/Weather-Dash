@@ -22,3 +22,6 @@ h1{
     border-radius: 5px;
 }
 
+.currentAlign{
+    float: right;
+}

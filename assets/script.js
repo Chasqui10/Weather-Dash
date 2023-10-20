@@ -1,5 +1,5 @@
 // HTML reference for sections
-const targetDaily = $(".currentWeather");
+const targetDaily = $("#currentWeather");
 const targetWeekly = $(".5dayForecast");
 var formContainer = $("#formContainer")
 var btnSearch = $("#btnSearch");
@@ -42,7 +42,7 @@ function getCityWeather(){
         return response.json();
     })
     .then(function(data){
-        console.log(data);
+        //console.log(data);
         currentData = data;
         placeCurrentWeather(data);
     })
@@ -50,17 +50,29 @@ function getCityWeather(){
 };
 
 //function placing the data into respective container [current Forecast]
-// function placeCurrentWeather(){
+function placeCurrentWeather(){
+    // var currentDetails = $(".currentDetails");
+    // for (let i = 0; i< currentDetails.length; i++){
+    //     currentDetails[i].removeClass("active");
+    // }
+    
+    //console.log(currentData); //matches origin object data
+    currentTemp = currentData.main.temp;
+    //console.log(currentTemp); // gets me the degrees in temperature
+    currentWindSpeed = currentData.wind.speed;
+    //console.log(currentWindSpeed);// gets me the wind speed
+    currentHumidity = currentData.main.humidity;
+    //console.log(currentHumidity); //gets me the humidity percentage
+    currentIcon = currentData.weather[0].icon;
+    //console.log(currentIcon); //gets the id icon from the weather API
 
-//     //console.log(currentData); //matches origin object data
-//     currentTemp = currentData.main.temp;
-//     //console.log(currentTemp); // gets me the degrees in temperature
-//     currentWindSpeed = currentData.wind.speed;
-//     //console.log(currentWindSpeed);// gets me the wind speed
-//     currentHumidity = currentData.main.humidity;
-//     //console.log(currentHumidity); //gets me the humidity percentage
- 
-// }
+    // Appending the elements that will pop up after the city is searched. 
+    targetDaily.append(`<h2 class="currentDetails">${cityName} <img class="currentAlign" alt= "weather icon" src=https://openweathermap.org/img/wn/${currentIcon}@2x.png ></h2>`);
+    targetDaily.append(`<h6 class="currentDetails"> Temperature: ${currentTemp}°F</h6>`);
+    targetDaily.append(`<h6 class="currentDetails"> Wind Speed: ${currentWindSpeed} mph</h6>`);
+    targetDaily.append(`<h6 class="currentDetails"> Humidity: ${currentHumidity}%</h6>`);
+
+}
 
 
 function getCity5DayWeather() {
@@ -74,12 +86,101 @@ function getCity5DayWeather() {
         return response.json();
     }).then(function(data){
         //console.log(data);
+        fiveDayData = data;
+        place5DayWeather(data);
     })
 };
 
 //function placing the data into respective container [5 Day Forecast]
                 
+function place5DayWeather() {
+    //console.log(fiveDayData);
 
+    //Restting the previous appended elements [THIS is where I left off]
+    var cardDetails = $(".cardDetails");
+    for (let i = 0; i< cardDetails.length; i++){
+        cardDetails[i].removeClass("active");
+    };
+
+    for (let i = 0; i< cardDetails.length; i++){
+        cardDetails[i].addClass("active");
+    };
+    
+
+    // Adding the heading for the 5 day forecast
+    targetWeekly.prepend(`<h2 class="active cardDetails"> 5 Day Forecast for ${cityName} </h2>`);
+    
+    //Setting variable for Days 1-5 Card Elements from the "<li id="day#of 5"
+    const day1CardEl = $("#day1of5"); 
+    const day2CardEl = $("#day2of5"); 
+    const day3CardEl = $("#day3of5"); 
+    const day4CardEl = $("#day4of5"); 
+    const day5CardEl = $("#day5of5"); 
+
+    // Setting up variables for each day for the weather cards utilizing each date at noon
+    let day1Data = fiveDayData.list[4];
+    let day2Data = fiveDayData.list[12];
+    let day3Data = fiveDayData.list[20];
+    let day4Data = fiveDayData.list[28];
+    let day5Data = fiveDayData.list[36];
+
+    //Setting up Day 1 Data variable
+    day1Temp = day1Data.main.temp;
+    day1Icon = day1Data.weather[0].icon;
+    day1Wind = day1Data.wind.speed;
+    day1Hum = day1Data.main.humidity;
+    //Setting up Day 2 Data variable 
+    day2Temp = day2Data.main.temp;
+    day2Icon = day2Data.weather[0].icon;
+    day2Wind = day2Data.wind.speed;
+    day2Hum = day2Data.main.humidity;
+    //Setting up Day 3 Data variable 
+    day3Temp = day3Data.main.temp;
+    day3Icon = day3Data.weather[0].icon;
+    day3Wind = day3Data.wind.speed;
+    day3Hum = day3Data.main.humidity;
+    //Setting up Day 4 Data variable 
+    day4Temp = day4Data.main.temp;
+    day4Icon = day4Data.weather[0].icon;
+    day4Wind = day4Data.wind.speed;
+    day4Hum = day4Data.main.humidity;
+    //Setting up Day 5 Data variable 
+    day5Temp = day5Data.main.temp;
+    day5Icon = day5Data.weather[0].icon;
+    day5Wind = day5Data.wind.speed;
+    day5Hum = day5Data.main.humidity;
+
+    // Appending Elements for Day1
+    day1CardEl.append(`<h3 class="cardDetails" >Day 1 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day1Icon}@2x.png </h3>`);
+    day1CardEl.append(`<h6 class="cardDetails">Temp: ${day1Temp}°F</h6>`);
+    day1CardEl.append(`<h6 class="cardDetails">Wind: ${day1Wind}mph</h6>`);
+    day1CardEl.append(`<h6 class="cardDetails">Humidity: ${day1Hum}%</h6>`);
+    
+    // Appending Elements for Day1
+    day2CardEl.append(`<h3 class="cardDetails">Day 2 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day2Icon}@2x.png </h3>`);
+    day2CardEl.append(`<h6 class="cardDetails">Temp: ${day2Temp}°F</h6>`);
+    day2CardEl.append(`<h6 class="cardDetails">Wind: ${day2Wind}mph</h6>`);
+    day2CardEl.append(`<h6 class="cardDetails">Humidity: ${day2Hum}%</h6>`);
+
+    // Appending Elements for Day1
+    day3CardEl.append(`<h3 class="cardDetails">Day 3 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day3Icon}@2x.png </h3>`);
+    day3CardEl.append(`<h6 class="cardDetails">Temp: ${day3Temp}°F</h6>`);
+    day3CardEl.append(`<h6 class="cardDetails">Wind: ${day3Wind}mph</h6>`);
+    day3CardEl.append(`<h6 class="cardDetails">Humidity: ${day3Hum}%</h6>`);
+
+    // Appending Elements for Day1
+    day4CardEl.append(`<h3 class="cardDetails">Day 4 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day4Icon}@2x.png </h3>`);
+    day4CardEl.append(`<h6 class="cardDetails">Temp: ${day4Temp}°F</h6>`);
+    day4CardEl.append(`<h6 class="cardDetails">Wind: ${day4Wind}mph</h6>`);
+    day4CardEl.append(`<h6 class="cardDetails">Humidity: ${day4Hum}%</h6>`);
+
+    // Appending Elements for Day1 
+    day5CardEl.append(`<h3 class="cardDetails">Day 5 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day5Icon}@2x.png </h3>`);
+    day5CardEl.append(`<h6 class="cardDetails">Temp: ${day5Temp}°F</h6>`);
+    day5CardEl.append(`<h6 class="cardDetails">Wind: ${day5Wind}mph</h6>`);
+    day5CardEl.append(`<h6 class="cardDetails">Humidity: ${day5Hum}%</h6>`);
+
+};
 
 
                  
