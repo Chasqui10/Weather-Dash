@@ -11,7 +11,6 @@ const apiKey = "e3d4af60a83c0902cca3fbece818aa9e"
 //Event Listener List
 btnSearch.on("click", getCityCoord);
 
-
 // function to get API data from openweather.com for the target City's coordinates for the needed API pulls indicating weather based off the city's name from the input.
 function getCityCoord(event){
     event.preventDefault();
@@ -51,12 +50,11 @@ function getCityWeather(){
 
 //function placing the data into respective container [current Forecast]
 function placeCurrentWeather(){
-    // var currentDetails = $(".currentDetails");
-    // for (let i = 0; i< currentDetails.length; i++){
-    //     currentDetails[i].removeClass("active");
-    // }
+    var currentDetails = $(".currentDetails");
+    for (let i = 0; i< currentDetails.length; i++){
+        currentDetails[i].remove();
+    }
     
-    //console.log(currentData); //matches origin object data
     currentTemp = currentData.main.temp;
     //console.log(currentTemp); // gets me the degrees in temperature
     currentWindSpeed = currentData.wind.speed;
@@ -71,9 +69,7 @@ function placeCurrentWeather(){
     targetDaily.append(`<h6 class="currentDetails"> Temperature: ${currentTemp}°F</h6>`);
     targetDaily.append(`<h6 class="currentDetails"> Wind Speed: ${currentWindSpeed} mph</h6>`);
     targetDaily.append(`<h6 class="currentDetails"> Humidity: ${currentHumidity}%</h6>`);
-
 }
-
 
 function getCity5DayWeather() {
     let targetCityLat = parseFloat(weatherData[0].lat);
@@ -92,20 +88,12 @@ function getCity5DayWeather() {
 };
 
 //function placing the data into respective container [5 Day Forecast]
-                
 function place5DayWeather() {
-    //console.log(fiveDayData);
-
-    //Restting the previous appended elements [THIS is where I left off]
     var cardDetails = $(".cardDetails");
     for (let i = 0; i< cardDetails.length; i++){
-        cardDetails[i].removeClass("active");
+        // cardDetails[i].removeClass("active");
+        cardDetails[i].remove();
     };
-
-    for (let i = 0; i< cardDetails.length; i++){
-        cardDetails[i].addClass("active");
-    };
-    
 
     // Adding the heading for the 5 day forecast
     targetWeekly.prepend(`<h2 class="active cardDetails"> 5 Day Forecast for ${cityName} </h2>`);
@@ -151,38 +139,39 @@ function place5DayWeather() {
     day5Hum = day5Data.main.humidity;
 
     // Appending Elements for Day1
-    day1CardEl.append(`<h3 class="cardDetails" >Day 1 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day1Icon}@2x.png </h3>`);
-    day1CardEl.append(`<h6 class="cardDetails">Temp: ${day1Temp}°F</h6>`);
-    day1CardEl.append(`<h6 class="cardDetails">Wind: ${day1Wind}mph</h6>`);
-    day1CardEl.append(`<h6 class="cardDetails">Humidity: ${day1Hum}%</h6>`);
+    day1CardEl.append(`<h4 class="active cardDetails p-2 " >Day 1 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day1Icon}@2x.png </h4>`);
+    day1CardEl.append(`<h6 class="active cardDetails px-2">Temp: ${day1Temp}°F</h6>`);
+    day1CardEl.append(`<h6 class="active cardDetails px-2">Wind: ${day1Wind}mph</h6>`);
+    day1CardEl.append(`<h6 class="active cardDetails px-2">Humidity: ${day1Hum}%</h6>`);
     
-    // Appending Elements for Day1
-    day2CardEl.append(`<h3 class="cardDetails">Day 2 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day2Icon}@2x.png </h3>`);
-    day2CardEl.append(`<h6 class="cardDetails">Temp: ${day2Temp}°F</h6>`);
-    day2CardEl.append(`<h6 class="cardDetails">Wind: ${day2Wind}mph</h6>`);
-    day2CardEl.append(`<h6 class="cardDetails">Humidity: ${day2Hum}%</h6>`);
+    // Appending Elements for Day2
+    day2CardEl.append(`<h4 class="active cardDetails p-2">Day 2 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day2Icon}@2x.png </h4>`);
+    day2CardEl.append(`<h6 class="active cardDetails px-2">Temp: ${day2Temp}°F</h6>`);
+    day2CardEl.append(`<h6 class="active cardDetails pxl-2">Wind: ${day2Wind}mph</h6>`);
+    day2CardEl.append(`<h6 class="active cardDetails px-2">Humidity: ${day2Hum}%</h6>`);
 
-    // Appending Elements for Day1
-    day3CardEl.append(`<h3 class="cardDetails">Day 3 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day3Icon}@2x.png </h3>`);
-    day3CardEl.append(`<h6 class="cardDetails">Temp: ${day3Temp}°F</h6>`);
-    day3CardEl.append(`<h6 class="cardDetails">Wind: ${day3Wind}mph</h6>`);
-    day3CardEl.append(`<h6 class="cardDetails">Humidity: ${day3Hum}%</h6>`);
+    // Appending Elements for Day3
+    day3CardEl.append(`<h4 class="active cardDetails p-2">Day 3 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day3Icon}@2x.png </h4>`);
+    day3CardEl.append(`<h6 class="active cardDetails px-2">Temp: ${day3Temp}°F</h6>`);
+    day3CardEl.append(`<h6 class="active cardDetails px-2">Wind: ${day3Wind}mph</h6>`);
+    day3CardEl.append(`<h6 class="active cardDetails px-2">Humidity: ${day3Hum}%</h6>`);
 
-    // Appending Elements for Day1
-    day4CardEl.append(`<h3 class="cardDetails">Day 4 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day4Icon}@2x.png </h3>`);
-    day4CardEl.append(`<h6 class="cardDetails">Temp: ${day4Temp}°F</h6>`);
-    day4CardEl.append(`<h6 class="cardDetails">Wind: ${day4Wind}mph</h6>`);
-    day4CardEl.append(`<h6 class="cardDetails">Humidity: ${day4Hum}%</h6>`);
+    // Appending Elements for Day4
+    day4CardEl.append(`<h4 class="active cardDetails p-2">Day 4 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day4Icon}@2x.png </h4>`);
+    day4CardEl.append(`<h6 class="active cardDetails px-2">Temp: ${day4Temp}°F</h6>`);
+    day4CardEl.append(`<h6 class="active cardDetails px-2">Wind: ${day4Wind}mph</h6>`);
+    day4CardEl.append(`<h6 class="active cardDetails px-2">Humidity: ${day4Hum}%</h6>`);
 
-    // Appending Elements for Day1 
-    day5CardEl.append(`<h3 class="cardDetails">Day 5 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day5Icon}@2x.png </h3>`);
-    day5CardEl.append(`<h6 class="cardDetails">Temp: ${day5Temp}°F</h6>`);
-    day5CardEl.append(`<h6 class="cardDetails">Wind: ${day5Wind}mph</h6>`);
-    day5CardEl.append(`<h6 class="cardDetails">Humidity: ${day5Hum}%</h6>`);
-
+    // Appending Elements for Day5
+    day5CardEl.append(`<h4 class="active cardDetails p-2">Day 5 of 5 <img class="currentAlign" alt="weather icon" src=https://openweathermap.org/img/wn/${day5Icon}@2x.png </h4>`);
+    day5CardEl.append(`<h6 class="active cardDetails px-2">Temp: ${day5Temp}°F</h6>`);
+    day5CardEl.append(`<h6 class="active cardDetails px-2">Wind: ${day5Wind}mph</h6>`);
+    day5CardEl.append(`<h6 class="active cardDetails px-2">Humidity: ${day5Hum}%</h6>`);
 };
 
+function loadSearchHistory() {
 
+};
                  
  
                
