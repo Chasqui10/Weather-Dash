@@ -4,17 +4,21 @@ const targetWeekly = $(".5dayForecast");
 var formContainer = $("#formContainer")
 var btnSearch = $("#btnSearch");
 var cityTarget = $("#citySearch");
+var cityHistoryContainer = $(".cityHistory");
 
-//Api Key for openweather
+
+// Api Key for openweather
 const apiKey = "e3d4af60a83c0902cca3fbece818aa9e"
 
-//Event Listener List
+// Event Listener List
 btnSearch.on("click", getCityCoord);
 
-// function to get API data from openweather.com for the target City's coordinates for the needed API pulls indicating weather based off the city's name from the input.
+// Function to get API data from openweather.com for the target City's coordinates for the needed API pulls indicating weather based off the city's name from the input.
 function getCityCoord(event){
     event.preventDefault();
     cityName = cityTarget.val().trim();
+    localStorage.setItem('City Name', cityName);
+    storeCityHistory();
     const weatherLocApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}&units=imperial`
 
     fetch(weatherLocApiUrl)
@@ -26,7 +30,7 @@ function getCityCoord(event){
         getCityWeather(data); 
         getCity5DayWeather(data);
 
-    }) 
+    });
 };
 
 // function for pulling text from the input form and  
@@ -169,9 +173,26 @@ function place5DayWeather() {
     day5CardEl.append(`<h6 class="active cardDetails px-2">Humidity: ${day5Hum}%</h6>`);
 };
 
-function loadSearchHistory() {
+// Local Storage function 
+function storeCityHistory(){
+    pastCity = localStorage.getItem('City Name');
+    // console.log(pastCity);
+    cityHistoryContainer.append(`<button type="button" class="btn btn-secondary searchedCity"> ${pastCity} </button>`);
+
+    // Event listener for new buttons to work as well.  
+    $(".cityHistory button").on('click', function(event){
+        //event.preventDefault();
+        //var xob = $(".cityHistory button").text();
+        var xob = $(".searchedCity").text();
+        //event.target();
+        //getCityCoord(xob);
+        //console.log(xob);
+        console.log(event.currentTarget);
+        //return getCityCoord({xob});
+    }
+    );
 
 };
-                 
- 
-               
+
+
+
