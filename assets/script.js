@@ -180,18 +180,21 @@ function storeCityHistory(){
     cityHistoryContainer.append(`<button type="button" class="btn btn-secondary searchedCity"> ${pastCity} </button>`);
 
     // Event listener for new buttons to work as well.  
-    $(".cityHistory button").on('click', function(event){
+    $(".searchedCity").on("click", function(event){
         //event.preventDefault();
-        //var xob = $(".cityHistory button").text();
-        var xob = $(".searchedCity").text();
-        //event.target();
-        //getCityCoord(xob);
-        //console.log(xob);
-        console.log(event.currentTarget);
-        //return getCityCoord({xob});
-    }
-    );
+        
+        const btnText = event.currentTarget.textContent;
+        // Tried setting up the text content to local Storage and attempt to re run the get City Cordinates and run through the application again......
+        // localStorage.setItem('City Name', btnText);
+        
+        console.log(btnText);
+        
+        event.stopPropagation();
+        event.stopImmediatePropagtaion();
+        
+    });
 
+    
 };
 
 
