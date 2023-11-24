@@ -184,7 +184,7 @@ function storeCityHistory(){
         //event.preventDefault();
         
         const btnText = event.currentTarget.textContent;
-        // Tried setting up the text content to local Storage and attempt to re run the get City Cordinates and run through the application again......
+        // Tried setting up the text content to local Storage and attempt to rerun the get City Cordinates and run through the application again...
         // localStorage.setItem('City Name', btnText);
         
         console.log(btnText);

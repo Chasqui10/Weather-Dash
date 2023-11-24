@@ -1,7 +1,7 @@
 :root{
     --custom-bg-color: rgb(214, 237, 241);
-    --custom-bg-card: rgb(82, 120, 177);
-    --custom-bg-navBar: green;
+    --custom-bg-card: rgb(186, 199, 219);
+    --custom-bg-navBar: rgb(94, 121, 94);
 }
 
 body{
@@ -23,5 +23,5 @@ h1{
 }
 
 .currentAlign{
-    float: right;
+    float: center;
 }
